@@ -28,6 +28,17 @@ Before installation, ensure you have Docker, Docker Compose, Pipenv, Node.js, an
 
    ```bash
    docker-compose up
+   # or docker compose up (no dash)
+   ```
+
+   Tip: use a `envs/{prod,dev}.env` file to set the environment variables for the backend and frontend.
+
+   ```bash
+   docker-compose --env-file envs/dev.env -f docker-compose.yml up # for dev
+   # or
+   docker-compose --env-file envs/prod.env -f docker-compose.yml up # for prod
+
+   # again, your system might not use the command `docker compose` instead of `docker-compose`
    ```
 
 ### Manual Setup
@@ -103,7 +114,7 @@ Built with FastAPI and PyTorch, the backend handles image uploads and manages da
 
 ### Code Organization
 
-```
+```plaintext
 $ tree . -I node_modules -I .venv
 .
 ├── backend
