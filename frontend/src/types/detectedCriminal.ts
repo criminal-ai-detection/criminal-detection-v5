@@ -11,9 +11,9 @@ export default class DetectedCriminal {
   //   let sumX = 0,
   //     sumY = 0,
   //     count = 0;
-    // const width = this.mask.width;
-    // const height = this.mask.height;
-    // const imageData = this.mask;
+  // const width = this.mask.width;
+  // const height = this.mask.height;
+  // const imageData = this.mask;
 
   //   for (let y = 0; y < height; y++) {
   //     for (let x = 0; x < width; x++) {

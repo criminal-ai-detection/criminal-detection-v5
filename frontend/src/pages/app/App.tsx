@@ -11,7 +11,9 @@ const App = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
       <div className="w-full max-w-4xl p-4">
-        <h1 className="text-4xl font-bold mb-8 text-center">Criminal Detection App</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          Criminal Detection App
+        </h1>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

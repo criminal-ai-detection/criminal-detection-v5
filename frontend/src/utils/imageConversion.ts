@@ -16,7 +16,11 @@ export const urlToImageData = async (url: string): Promise<ImageData> => {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         resolve(imageData);
       } catch (error) {
-        reject(new Error("Error converting image to ImageData: " + (error as Error).message));
+        reject(
+          new Error(
+            "Error converting image to ImageData: " + (error as Error).message,
+          ),
+        );
       }
     };
     img.onerror = (error) => {

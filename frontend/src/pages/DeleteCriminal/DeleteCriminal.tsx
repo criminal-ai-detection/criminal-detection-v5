@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Criminal from "@/types/criminal";
-import { API_BASE_URL } from '@/config';
+import { API_BASE_URL } from "@/config";
 
 const DeleteCriminal = () => {
   const [criminals, setCriminals] = useState<Criminal[]>([]);
@@ -17,7 +17,7 @@ const DeleteCriminal = () => {
         const data = await response.json();
         setCriminals(data);
       } catch (error) {
-        console.error('Error fetching criminals:', error);
+        console.error("Error fetching criminals:", error);
       }
     };
 
@@ -27,21 +27,23 @@ const DeleteCriminal = () => {
   const handleDelete = async (criminalName: string) => {
     try {
       const formData = new FormData();
-      formData.append('name', criminalName);
+      formData.append("name", criminalName);
 
       const response = await fetch(`${API_BASE_URL}/delete-criminal/`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setCriminals(criminals.filter((criminal) => criminal.name !== criminalName));
+        setCriminals(
+          criminals.filter((criminal) => criminal.name !== criminalName),
+        );
         setMessage(`Criminal ${criminalName} deleted successfully`);
       } else {
         setMessage(`Failed to delete criminal ${criminalName}`);
       }
     } catch (error) {
-      console.error('Error deleting criminal:', error);
+      console.error("Error deleting criminal:", error);
       setMessage(`Error deleting criminal ${criminalName}`);
     }
   };
@@ -61,7 +63,10 @@ const DeleteCriminal = () => {
         <h1 className="text-3xl font-bold text-white mb-6">Delete Criminal</h1>
         <form className="space-y-4">
           <div>
-            <label htmlFor="criminal" className="block text-sm font-medium text-gray-300">
+            <label
+              htmlFor="criminal"
+              className="block text-sm font-medium text-gray-300"
+            >
               Select a criminal to delete:
             </label>
             <select
@@ -96,7 +101,9 @@ const DeleteCriminal = () => {
         {showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-white mb-4">Are you sure you want to delete this criminal?</p>
+              <p className="text-white mb-4">
+                Are you sure you want to delete this criminal?
+              </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={handleConfirmSubmit}

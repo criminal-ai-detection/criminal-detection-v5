@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from '@/config';
+import { API_BASE_URL } from "@/config";
 
 const CreateCriminal = () => {
   const [name, setName] = useState("");
@@ -25,27 +25,27 @@ const CreateCriminal = () => {
     // setIsLoading(true);
 
     const formData = new FormData();
-    formData.append('name', name);
+    formData.append("name", name);
     files.forEach((file) => {
-      formData.append('files', file);
+      formData.append("files", file);
     });
 
     try {
       const response = await fetch(`${API_BASE_URL}/create-criminal/`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
 
       if (response.ok) {
-        setMessage('Criminal created successfully');
-        setName('');
+        setMessage("Criminal created successfully");
+        setName("");
         setFiles([]);
       } else {
-        setMessage('Failed to create criminal');
+        setMessage("Failed to create criminal");
       }
     } catch (error) {
-      console.error('Error creating criminal:', error);
-      setMessage('Error creating criminal');
+      console.error("Error creating criminal:", error);
+      setMessage("Error creating criminal");
     } finally {
       // setIsLoading(false);
     }
@@ -61,7 +61,10 @@ const CreateCriminal = () => {
         <h1 className="text-3xl font-bold text-white mb-6">Create Criminal</h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-300"
+            >
               Name:
             </label>
             <input
@@ -73,7 +76,10 @@ const CreateCriminal = () => {
             />
           </div>
           <div>
-            <label htmlFor="files" className="block text-sm font-medium text-gray-300">
+            <label
+              htmlFor="files"
+              className="block text-sm font-medium text-gray-300"
+            >
               Files:
             </label>
             <input
@@ -102,7 +108,9 @@ const CreateCriminal = () => {
         {showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-white mb-4">Are you sure you want to create this criminal?</p>
+              <p className="text-white mb-4">
+                Are you sure you want to create this criminal?
+              </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={handleConfirmSubmit}

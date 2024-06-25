@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Criminal from "@/types/criminal";
-import { API_BASE_URL } from '@/config';
+import { API_BASE_URL } from "@/config";
 
 const EditCriminal = () => {
   const [criminals, setCriminals] = useState<Criminal[]>([]);
@@ -58,10 +58,15 @@ const EditCriminal = () => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-md bg-gray-800 rounded-xl p-8 shadow-lg">
-        <h1 className="text-3xl font-bold text-white mb-6 text-center">Edit Criminal</h1>
+        <h1 className="text-3xl font-bold text-white mb-6 text-center">
+          Edit Criminal
+        </h1>
         <form className="space-y-4">
           <div>
-            <label htmlFor="criminal" className="block text-sm font-medium text-gray-300">
+            <label
+              htmlFor="criminal"
+              className="block text-sm font-medium text-gray-300"
+            >
               Select a criminal:
             </label>
             <select
@@ -79,7 +84,10 @@ const EditCriminal = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="files" className="block text-sm font-medium text-gray-300">
+            <label
+              htmlFor="files"
+              className="block text-sm font-medium text-gray-300"
+            >
               Add new images:
             </label>
             <input
@@ -98,7 +106,9 @@ const EditCriminal = () => {
             Edit Criminal
           </button>
         </form>
-        {message && <p className="mt-4 text-green-400 text-center">{message}</p>}
+        {message && (
+          <p className="mt-4 text-green-400 text-center">{message}</p>
+        )}
         <button
           onClick={() => navigate("/")}
           className="mt-4 w-full px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out"
@@ -108,7 +118,9 @@ const EditCriminal = () => {
         {showConfirmation && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-white mb-4">Are you sure you want to edit this criminal?</p>
+              <p className="text-white mb-4">
+                Are you sure you want to edit this criminal?
+              </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={handleConfirmSubmit}
