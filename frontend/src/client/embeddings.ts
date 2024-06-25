@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_BASE_URL } from '@/config';
+import { API_BASE_URL } from "@/config";
 
 // const THRESHOLD_1 = 0.8; // Threshold for similarity acceptance
 
@@ -10,16 +10,17 @@ export async function getRecognitionsFromAPI(
   imageData: ImageData,
   setProgress: (progress: number) => void,
   confidence_threshold: number,
-): Promise<{ recognitionResults: string[], recognitionSimilarities: number[] }> {
-
+): Promise<{
+  recognitionResults: string[];
+  recognitionSimilarities: number[];
+}> {
   const formData = new FormData();
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = imageData.width;
   canvas.height = imageData.height;
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
 
-
-  console.log("inside getEmbeddingsFromAPI()")
+  console.log("inside getEmbeddingsFromAPI()");
   if (!ctx) {
     throw new Error("Failed to get 2D context");
   }
@@ -33,7 +34,7 @@ export async function getRecognitionsFromAPI(
       } else {
         reject(new Error("Failed to create Blob from ImageData"));
       }
-    }, 'image/jpeg');
+    }, "image/jpeg");
   });
 
   if (!blob) {
