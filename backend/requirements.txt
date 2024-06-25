@@ -1,8 +1,8 @@
-deepface==0.0.92
-fastapi==0.111.0
-numpy==2.0.0
-pandas==2.2.2
-uvicorn==0.30.1
-tf-keras==2.16.0
-ultralytics==8.2.38
+deepface
+fastapi
+numpy
+pandas
+uvicorn
+tf-keras
+ultralytics
 Pillow
