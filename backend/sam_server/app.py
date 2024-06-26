@@ -56,7 +56,7 @@ app.add_middleware(HTTPSRedirectMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://deployed-criminal-detection-v5.vercel.app/"],
+    allow_origins=["*"],
     # "https://browser-ai-demo.vercel.app",
     #                "https://browser-ai-demo-c9bevc48dh7c.code.run",
     #                "http://localhost:5173"
