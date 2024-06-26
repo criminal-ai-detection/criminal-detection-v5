@@ -61,7 +61,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-API_BASE_URL = os.environ.get("API_BASE_URL", "http://52.73.112.42:8000/")
+API_BASE_URL = os.environ.get("API_BASE_URL", "https://52.73.112.42:8000/")
 
 CRIMINAL_DATA_DIR = os.path.join(backend_dir, "criminal_data")
 SAMPLE_IMAGES_DIR = os.path.join(backend_dir, "sample_images")
