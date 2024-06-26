@@ -56,7 +56,8 @@ app.add_middleware(HTTPSRedirectMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://deployed-criminal-detection-v5.vercel.app/",
+                   "https://vercel.com/neuralroots-projects/deployed-criminal-detection-v5/3nNvkPzzjPQqCJJZ5Fmmz2VXoP56"],
     # "https://browser-ai-demo.vercel.app",
     #                "https://browser-ai-demo-c9bevc48dh7c.code.run",
     #                "http://localhost:5173"
@@ -411,4 +412,5 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000,
+                ssl_keyfile="certificates.pem", ssl_certfile="certificates.pem")
